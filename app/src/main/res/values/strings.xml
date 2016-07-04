@@ -5,7 +5,6 @@
     <string name="action_favorites">Favorites</string>
 
 
-
     <string name="base_url">https://api.themoviedb.org/3/movie/</string>
     <string name="path1">3</string>
     <string name="path2">discover</string>

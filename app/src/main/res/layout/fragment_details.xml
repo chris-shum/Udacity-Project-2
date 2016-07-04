@@ -63,7 +63,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Favorite" />
+                android:text="Favorite"
+                android:visibility="invisible" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -75,14 +76,16 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Trailers" />
+                    android:text="Trailers"
+                    android:visibility="invisible" />
 
                 <Button
                     android:id="@+id/reviewsButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Reviews" />
+                    android:text="Reviews"
+                    android:visibility="invisible" />
 
             </LinearLayout>
 
@@ -109,7 +112,6 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
-
 
 
         </LinearLayout>

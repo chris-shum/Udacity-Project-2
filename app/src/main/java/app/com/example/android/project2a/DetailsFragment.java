@@ -64,6 +64,10 @@ public class DetailsFragment extends Fragment {
 
         if (position != null) {
 
+            favoritesButton.setVisibility(View.VISIBLE);
+            reviewsButton.setVisibility(View.VISIBLE);
+            trailersButton.setVisibility(View.VISIBLE);
+
             title.setText(singleton.getMovieInfoObjectsArrayList().get(position).getOriginalTitle());
             plot.setText(singleton.getMovieInfoObjectsArrayList().get(position).getOverview());
             rating.setText("\nRating: " + singleton.getMovieInfoObjectsArrayList().get(position).getVoteAverage() + "/10");
