@@ -55,6 +55,15 @@ public class Result {
     @Expose
     private double voteAverage;
 
+    public Result(String id, String movieName, String posterPath, String moviePlot, String movieRating, String movieRelease) {
+        this.id = Integer.valueOf(id);
+        this.title = movieName;
+        this.posterPath = posterPath;
+        this.overview = moviePlot;
+        this.voteAverage = Double.valueOf(movieRating);
+        this.releaseDate = movieRelease;
+    }
+
     /**
      * 
      * @return

@@ -4,7 +4,7 @@
     <string name="action_best_rated">Best Rated</string>
     <string name="action_favorites">Favorites</string>
 
-
+    <string name="API_KEY">5bcfaa2234e9753384005a12ae3db303</string>
 
     <string name="base_url">https://api.themoviedb.org/3/movie/</string>
     <string name="path1">3</string>
@@ -18,5 +18,10 @@
     <string name="page_query">page</string>
     <string name="poster_url">http://image.tmdb.org/t/p/w185/</string>
     <string name="no_poster_url">https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png</string>
+    <string name="title_activity_favorites">FavoritesActivity</string>
+    <string name="add_to_favorites">Add to favorites</string>
+    <string name="remove_from_favorites">Remove from favorites</string>
+
+
 
 </resources>

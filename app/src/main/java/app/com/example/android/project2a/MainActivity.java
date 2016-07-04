@@ -1,5 +1,6 @@
 package app.com.example.android.project2a;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -7,13 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.util.List;
 
+import app.com.example.android.project2a.SQLite.MovieSQLiteOpenHelper;
+import app.com.example.android.project2a.data.APICall.MovieAPI;
 import app.com.example.android.project2a.data.main.Movie;
 import app.com.example.android.project2a.data.main.Result;
-import app.com.example.android.project2a.data.APICall.MovieAPI;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     GridLayoutManager gridLayoutManager;
     RecyclerViewAdapter recyclerViewAdapter;
     Toolbar toolbar;
+    MovieSQLiteOpenHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewAdapter = new RecyclerViewAdapter(mSingleton.getMovieInfoObjectsArrayList());
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setLayoutManager(gridLayoutManager);
+
     }
 
     @Override
@@ -70,13 +73,14 @@ public class MainActivity extends AppCompatActivity {
                 getMovies(choice);
                 break;
             case R.id.action_favorites:
-                Toast.makeText(MainActivity.this, "Favorites", Toast.LENGTH_SHORT).show();
+                toolbar.setTitle("Favorites");
+                getFavorites();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void getMovies(String choice){
+    public void getMovies(String choice) {
         MovieAPI.Factory.getInstance().getMovie(choice, getString(R.string.API_KEY)).enqueue(new Callback<Movie>() {
             @Override
             public void onResponse(Call<Movie> call, Response<Movie> response) {
@@ -93,6 +97,31 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void getFavorites() {
+        mSingleton.movieInfoObjectsArrayList.clear();
+        databaseHelper = new MovieSQLiteOpenHelper(MainActivity.this);
+        Cursor cursor = databaseHelper.getMovieList();
+        if (cursor.moveToFirst()) {
+            while (cursor.isAfterLast() == false) {
+                String id = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_ID));
+                String movieName = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_MOVIE_NAME));
+                String moviePoster = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_MOVIE_POSTER));
+                String plot = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_PLOT));
+                String rating = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_RATING));
+                String release = cursor.getString(cursor.getColumnIndex(databaseHelper.COL_RELEASE));
+                mSingleton.getMovieInfoObjectsArrayList().add(new Result(id, movieName, moviePoster, plot, rating, release));
+                cursor.moveToNext();
+            }
+            cursor.close();
+        }
+        recyclerViewAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        recyclerViewAdapter.notifyDataSetChanged();
+    }
 }
 
 

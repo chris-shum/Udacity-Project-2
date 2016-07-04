@@ -63,5 +63,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             intent.putExtra("Position", getAdapterPosition());
             context.startActivity(intent);
         }
+
     }
 }
