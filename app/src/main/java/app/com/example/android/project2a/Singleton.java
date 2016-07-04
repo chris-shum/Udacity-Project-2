@@ -3,7 +3,7 @@ package app.com.example.android.project2a;
 import java.util.ArrayList;
 import java.util.List;
 
-import app.com.example.android.project2a.data.model.Result;
+import app.com.example.android.project2a.data.main.Result;
 
 /**
  * Created by ShowMe on 6/23/16.
@@ -30,7 +30,4 @@ public class Singleton {
         return movieInfoObjectsArrayList;
     }
 
-    public void setMovieInfoObjectsArrayList(List<Result> movieInfoObjectsArrayList) {
-        this.movieInfoObjectsArrayList = movieInfoObjectsArrayList;
-    }
 }

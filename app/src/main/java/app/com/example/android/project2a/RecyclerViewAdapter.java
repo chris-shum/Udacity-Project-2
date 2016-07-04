@@ -12,7 +12,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import app.com.example.android.project2a.data.model.Result;
+import app.com.example.android.project2a.data.main.Result;
 
 /**
  * Created by ShowMe on 6/23/16.

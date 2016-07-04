@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp" />
+        android:layout_marginTop="48dp"
+        android:adjustViewBounds="true" />
 
     <TextView
         android:id="@+id/detailsTitle"
@@ -64,6 +65,26 @@
                 android:layout_below="@+id/detailsRating"
                 android:text="Medium Text"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/trailersButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trailers" />
+
+                <Button
+                    android:id="@+id/reviewsButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reviews" />
+
+            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>

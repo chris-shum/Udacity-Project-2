@@ -1,5 +1,5 @@
 
-package app.com.example.android.project2a.data.model;
+package app.com.example.android.project2a.data.main;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
