@@ -10,6 +10,7 @@ import app.com.example.android.project2a.data.main.Result;
  */
 public class Singleton {
     List<Result> movieInfoObjectsArrayList;
+    Boolean mTwoPanes;
 
     public Singleton() {
         if (movieInfoObjectsArrayList == null) {
@@ -30,5 +31,11 @@ public class Singleton {
         return movieInfoObjectsArrayList;
     }
 
+    public Boolean getmTwoPanes() {
+        return mTwoPanes;
+    }
 
+    public void setmTwoPanes(Boolean mTwoPanes) {
+        this.mTwoPanes = mTwoPanes;
+    }
 }

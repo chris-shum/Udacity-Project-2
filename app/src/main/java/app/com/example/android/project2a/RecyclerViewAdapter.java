@@ -2,6 +2,8 @@ package app.com.example.android.project2a;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,10 +60,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View v) {
-            Context context = v.getContext();
-            Intent intent = new Intent(context, DetailsActivity.class);
-            intent.putExtra("Position", getAdapterPosition());
-            context.startActivity(intent);
+            Singleton singleton = Singleton.getInstance();
+            Boolean mTwoPane = singleton.getmTwoPanes();
+
+            if (mTwoPane) {
+                Bundle arguments = new Bundle();
+                arguments.putString("Position", String.valueOf(getAdapterPosition()));
+                DetailsFragment fragment = new DetailsFragment();
+                fragment.setArguments(arguments);
+                ((FragmentActivity)v.getContext()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.detailsFragment, fragment)
+                        .commit();
+            } else {
+                Context context = v.getContext();
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("Position", getAdapterPosition());
+                context.startActivity(intent);
+            }
         }
 
     }
