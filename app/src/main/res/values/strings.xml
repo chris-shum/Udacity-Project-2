@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="action_popular">Most Popular</string>
+    <string name="action_best_rated">Best Rated</string>
+    <string name="action_favorites">Favorites</string>
+
+
+
+    <string name="base_url">api.themoviedb.org</string>
+    <string name="path1">3</string>
+    <string name="path2">discover</string>
+    <string name="path3">movie</string>
+    <string name="API_query">api_key</string>
+    <string name="sort_by_query">sort_by</string>
+    <string name="sort_by_query1">popular</string>
+    <string name="sort_by_query2">top_rated</string>
+    <string name="sort_by_year_query">primary_release_year</string>
+    <string name="page_query">page</string>
+    <string name="poster_url">http://image.tmdb.org/t/p/w185/</string>
+    <string name="no_poster_url">https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png</string>
+
+</resources>
