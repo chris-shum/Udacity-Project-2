@@ -4,6 +4,7 @@
     <string name="action_best_rated">Best Rated</string>
     <string name="action_favorites">Favorites</string>
 
+    <string name="API_KEY">5bcfaa2234e9753384005a12ae3db303</string>
 
     <string name="base_url">https://api.themoviedb.org/3/movie/</string>
     <string name="path1">3</string>
